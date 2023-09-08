@@ -1,6 +1,6 @@
 <div align="center">
 <h1>
-<span style="color:gold">Project 3</span> 
+<span style="color:gold">Thyme for Lunch</span> 
 </h1>
 <h2>Technologies Used</h2>
 
@@ -105,5 +105,5 @@ Thank you for tips and sugestions from Bootcamp instructors and classmates.
 XXX
 
 ## Questions
-Please visit my [GitHub Repo](https://) to view this project.
+Please visit my [GitHub Repo](https://github.com/Esztergb/Thyme-for-Lunch) to view this project.
 [Deployed Page](https://)
