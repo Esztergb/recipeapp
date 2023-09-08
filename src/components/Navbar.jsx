@@ -3,8 +3,10 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
 function Navbar() {
 // swich over from regular menu to hamburger menu
-const [nav, setNav] = useState(false);
+const [nav, setNav] = useState(false); //default
 const handleClick = () => setNav(!nav);
+
+// const handleClose = () => setNav(!nav);
 
   return (
     <div className="w-screen h-[80px] z-10 fixed drop-shadow-md bg-cgreen">
@@ -39,10 +41,11 @@ const handleClick = () => setNav(!nav);
       </div>
 
       {/* this div is part of the Hamburger Menu... */}
-      <ul className={!nav ? "hidden" : "absolute bg-cgreen w-full px-8"}>
+      <ul className={!nav ? "hidden" : "md:hidden absolute bg-cgreen w-full px-8"}>
         <li className="border-b-2 border-cdarkgreen w-full">Recipies</li>
         <li className="border-b-2 border-cdarkgreen w-full">Calendar</li>
         <li className="border-b-2 border-cdarkgreen w-full">Shopping List</li>
+       {/* buttons */}
         <div className="flex flex-col my-4">
           <button className="bg-transparent text-cbrown px-8 py-3 mb-4">
             Sign In
