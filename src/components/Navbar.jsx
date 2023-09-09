@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Link } from "react-router-dom";
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
 function Navbar() {
@@ -19,9 +20,9 @@ const handleClick = () => setNav(!nav);
           </h1>
           {/* Menu */}
           <ul className="hidden md:flex">
-            <li>Recipies</li>
-            <li>Calendar</li>
-            <li>Shopping List</li>
+            <li className='hover:scale-110'> <Link to='/' className='cursor-pointer'>Recipies</Link></li>
+            <li className='hover:scale-110'> <Link to='/calendar' className='cursor-pointer'>Calendar</Link></li>
+            <li className='hover:scale-110'> <Link to='/shopping' className='cursor-pointer'>Shopping List</Link></li>
           </ul>
         </div>
         {/* sign in/Sign up buttons */}
