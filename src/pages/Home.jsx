@@ -1,11 +1,22 @@
 import Popular from "../components/Popular";
-
+import Veggie from "../components/Veggie";
+import { motion } from "framer-motion";
 function Home() {
   return (
-    <div className="w-full h-screen flex flex-col bg-cwhite items-center">
+    <div className="w-full flex flex-col bg-cwhite items-center">
       <img className="w-full bg-center flex" src="/food.jpg" alt="food" />
 
-      <form className="mt-4 w-full px-14">
+      <motion.div
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Popular />
+        <Veggie />
+      </motion.div>
+
+      {/* <form className="mt-4 w-full px-14">
         <div className="relative">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg
@@ -34,10 +45,8 @@ function Home() {
             Search
           </button>
         </div>
-      </form>
-         <Popular />
+      </form> */}
     </div>
- 
   );
 }
 

@@ -4,34 +4,40 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { Link } from "react-router-dom";
 
-function Popular() {
-  const [popular, setPopular] = useState([]);
 
-  //useEffect automatically imports from React - running the getPupuler function only when the component is mounted
-  useEffect(() => {
-    getPopular();
-  }, []);
 
-  // fetch request to Spoonacular API to find random (popular) recipes.
-  const getPopular = async () => {
-    const check = localStorage.getItem("popular");
+function Veggie() {
+ const [veggie, setVeggie] = useState([]);
 
-    if (check) {
-      setPopular(JSON.parse(check));
-    } else {
-      const api = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=74db62d59a674bbc85356ed301f3b3e2&number=9`
-      );
-      const data = await api.json();
-      localStorage.setItem("popular", JSON.stringify(data.recipes));
-      setPopular(data.recipes);
-    }
-  };
+ //useEffect automatically imports from React - running the getPupuler function only when the component is mounted
+ useEffect(() => {
+   getVeggie();
+ }, []);
+
+ // fetch request to Spoonacular API to find random (veggie) recipes.
+ const getVeggie = async () => {
+   const check = localStorage.getItem("veggie");
+
+   if (check) {
+     setVeggie(JSON.parse(check));
+   } else {
+     const api = await fetch(
+       `https://api.spoonacular.com/recipes/random?apiKey=74db62d59a674bbc85356ed301f3b3e2&number=9&tags=vegetarian`
+     );
+     const data = await api.json();
+     localStorage.setItem("veggie", JSON.stringify(data.recipes));
+     setVeggie(data.recipes);
+     console.log(data.recipe)
+   }
+ };
+
+
+
 
   return (
     <div>
       <Wrapper>
-        <h3>Popular Picks</h3>
+        <h3>Vegetarian Picks</h3>
 
         <Splide
           options={{
@@ -42,14 +48,14 @@ function Popular() {
             gap: "5rem",
           }}
         >
-          {popular.map((recipe) => {
+          {veggie.map((recipe) => {
             return (
               <SplideSlide key={recipe.id}>
                 <Card>
-                  <Link to={"/recipe/" + recipe.id}>
-                    <p>{recipe.title}</p>
-                    <img src={recipe.image} alt={recipe.title} />
-                    <Gradient />
+                  <Link to={'/recipe/' + recipe.id}>
+                  <p>{recipe.title}</p>
+                  <img src={recipe.image} alt={recipe.title} />
+                  <Gradient />
                   </Link>
                 </Card>
               </SplideSlide>
@@ -60,7 +66,6 @@ function Popular() {
     </div>
   );
 }
-
 const Wrapper = styled.div`
   margin: 4rem 0rem;
 `;
@@ -105,4 +110,4 @@ const Gradient = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0)), rgba(0, 0, 0, 0.5);
 `;
 
-export default Popular;
+export default Veggie;
