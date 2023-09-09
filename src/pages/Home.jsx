@@ -1,12 +1,11 @@
 import Popular from "../components/Popular";
 import Veggie from "../components/Veggie";
 import { motion } from "framer-motion";
+
 function Home() {
   return (
     <div className="w-full flex flex-col bg-cwhite items-center">
-      <img className="w-full bg-center flex" src="/food.jpg" alt="food" />
-
-      <motion.div
+        <motion.div
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
         exit={{ opacity: 0 }}
