@@ -26,7 +26,7 @@ import { styled } from "styled-components";
         <img src={details.image} alt="" />
       </div>
 
-      <div className="pl-10 basis-2/3">
+      <div className="pl-[5rem] basis-2/3">
         
           <Button
             className={activeTab === "instructions" ? "active" : ""}
@@ -77,6 +77,8 @@ const DetailWrapper = styled.div`
     margin-bottom: 2rem;
     color: #715a45;
     text-align: center;
+    font-weight: 600;
+    font-size: 25px;
   }
   h4 {
     color: #715a45;
@@ -105,10 +107,10 @@ const Button = styled.button`
   padding: 1rem 2rem;
   color: #715a45;
   background: #fdfaef;
-  /* border: 2px solid #3a2e23; */
   margin-right: 2rem;
   margin-bottom: 2rem;
   font-weight: 600;
+  transform: scale(0.8);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 `;
