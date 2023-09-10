@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 
 function Home() {
   return (
-    <div className="w-full flex flex-col bg-cwhite items-center">
-        <motion.div
+    <div className="">
+       <motion.div
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
         exit={{ opacity: 0 }}

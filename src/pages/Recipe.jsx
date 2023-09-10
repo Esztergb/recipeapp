@@ -15,45 +15,49 @@ import { styled } from "styled-components";
         setDetails(detailData);
     }
 
-    useEffect(()=> {
+    useEffect(() => {
       fetchDetails();
-    },[params.name])
+    }, [params.name]);
   
   return (
-    <DetailWrapper>
-      <div>
+    <DetailWrapper className="flex flex-row">
+      <div className="basis-1/3">
         <h2>{details.title}</h2>
         <img src={details.image} alt="" />
       </div>
-      <Info>
-        <Button
-          className={activeTab === "instructions" ? "active" : ""}
-          onClick={() => setActiveTab("instructions")}
-        >
-          Instructions
-        </Button>
-        <Button
-          className={activeTab === "ingredients" ? "active" : ""}
-          onClick={() => setActiveTab("ingredients")}
-        >
-          Ingredients
-        </Button>
-        {activeTab === 'instructions' && (
-        <div>
-          <h4 dangerouslySetInnerHTML={{__html: details.summary}}></h4>
-          <h4 dangerouslySetInnerHTML={{__html: details.instructions}}></h4>
-        </div>
 
-        )}
-        {activeTab === 'ingredients' && (
-          <ul>
-            {details.extendedIngredients.map((ingredient) => (
-              <li key={ingredient.id}>{ingredient.original}</li>
-            ))}
-          </ul>
-        )}
+      <div className="pl-10 basis-2/3">
         
-      </Info>
+          <Button
+            className={activeTab === "instructions" ? "active" : ""}
+            onClick={() => setActiveTab("instructions")}
+          >
+            Instructions
+          </Button>
+          <Button
+            className={activeTab === "ingredients" ? "active" : ""}
+            onClick={() => setActiveTab("ingredients")}
+          >
+            Ingredients
+          </Button>
+          {activeTab === "instructions" && (
+            <div>
+              <h4 dangerouslySetInnerHTML={{ __html: details.summary }}></h4>
+              <h4
+                dangerouslySetInnerHTML={{ __html: details.instructions }}
+              ></h4>
+            </div>
+          )}
+          {activeTab === "ingredients" && (
+            <ul>
+              {details.extendedIngredients.map((ingredient) => (
+                <li className="text-cbrown" key={ingredient.id}>
+                  {ingredient.original}
+                </li>
+              ))}
+            </ul>
+          )}
+         </div>
     </DetailWrapper>
   );
 }
@@ -61,34 +65,49 @@ import { styled } from "styled-components";
 
 
 const DetailWrapper = styled.div`
-  margin-top: 10rem;
-  margin-bottom: 5rem;
-  display: flex;
-  .active{
-    background: linear-gradient(35deg, #494949, #313131);
-    color: white;
+  margin: 4rem 15rem;
+ 
+  /* align-items: center;
+  justify-content: center; */
+  .active {
+    background: linear-gradient(35deg, #715a45, #3a2e23);
+    color: #f7f0d9;
   }
-  h2{
+  h2 {
     margin-bottom: 2rem;
+    color: #715a45;
+    text-align: center;
   }
-  li{
+  h4 {
+    color: #715a45;
+  }
+  li {
     font-size: 1.2rem;
-    line-height: 2.5rem;
+    line-height: 0.5;
   }
-  ul{
+  ul {
     margin-top: 2rem;
   }
 `;
 
+// const Card = styled.div`
+//   min-width: 25rem;
+//   max-width: 25rem;
+//   img {
+//     width: 100%;
+//     border-radius: 2rem;
+//   }
+ 
+// `;
+
 const Button = styled.button`
   padding: 1rem 2rem;
-  color: #313131;
+  color: #715a45;
   background: white;
-  border: 2px solid black;
+  border: 2px solid #3a2e23;
   margin-right: 2rem;
   font-weight: 600;
-`
-const Info = styled.div`
-  margin-left: 10rem;
-`
+  margin-bottom: 2rem;
+`;
+
 export default Recipe

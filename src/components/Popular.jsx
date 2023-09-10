@@ -30,12 +30,15 @@ function Popular() {
 
   return (
     <div>
-      <Wrapper>
+      <Title>
         <h3>Popular Picks</h3>
+      </Title>
+      <Wrapper>
+        
 
         <Splide
           options={{
-            perPage: 3,
+            perPage: 4,
             arrows: false,
             pagination: false,
             drag: "free",
@@ -60,12 +63,23 @@ function Popular() {
     </div>
   );
 }
+const Title = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h3 {
+    font-weight: 600;
+    font-size: 2rem;
+    color: #715a45;
+  }
+`;
 
 const Wrapper = styled.div`
-  margin: 4rem 0rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
 `;
 const Card = styled.div`
-  min-height: 25rem;
+  min-height: 20rem;
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
@@ -85,7 +99,7 @@ const Card = styled.div`
     position: absolute;
     z-index: 10;
     left: 50%;
-    bottom: 0%;
+    bottom: 10%;
     transform: translate(-50%, 0%);
     color: white;
     width: 100%;

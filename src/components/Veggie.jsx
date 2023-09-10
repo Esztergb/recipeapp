@@ -35,13 +35,16 @@ function Veggie() {
 
 
   return (
-    <div>
+    <div> 
+      <Title>
+      <h3 className="#715a45">Vegetarian Picks</h3>
+      </Title>
       <Wrapper>
-        <h3>Vegetarian Picks</h3>
+       
 
         <Splide
           options={{
-            perPage: 3,
+            perPage: 5,
             arrows: false,
             pagination: false,
             drag: "free",
@@ -52,10 +55,10 @@ function Veggie() {
             return (
               <SplideSlide key={recipe.id}>
                 <Card>
-                  <Link to={'/recipe/' + recipe.id}>
-                  <p>{recipe.title}</p>
-                  <img src={recipe.image} alt={recipe.title} />
-                  <Gradient />
+                  <Link to={"/recipe/" + recipe.id}>
+                    <p>{recipe.title}</p>
+                    <img src={recipe.image} alt={recipe.title} />
+                    <Gradient />
                   </Link>
                 </Card>
               </SplideSlide>
@@ -66,15 +69,27 @@ function Veggie() {
     </div>
   );
 }
-const Wrapper = styled.div`
-  margin: 4rem 0rem;
+
+const Title = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h3 {
+    font-weight: 600;
+    font-size: 2rem;
+    color: #715a45;
+  }
 `;
+const Wrapper = styled.div`
+  margin-left: 5rem;
+  margin-right: 5rem;
+  `;
+
 const Card = styled.div`
-  min-height: 25rem;
+  min-height: 16rem;
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
-  border: black;
 
   img {
     border-radius: 2rem;
@@ -90,7 +105,7 @@ const Card = styled.div`
     position: absolute;
     z-index: 10;
     left: 50%;
-    bottom: 0%;
+    bottom: 10%;
     transform: translate(-50%, 0%);
     color: white;
     width: 100%;
