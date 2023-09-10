@@ -35,20 +35,25 @@ function Veggie() {
 
 
   return (
-    <div> 
+    <div>
       <Title>
-      <h3 className="#715a45">Vegetarian Picks</h3>
+        <h3 className="#715a45">Vegetarian Picks</h3>
       </Title>
       <Wrapper>
-       
-
         <Splide
           options={{
-            perPage: 5,
+            perPage: 4,
             arrows: false,
             pagination: false,
             drag: "free",
-            gap: "5rem",
+            gap: "3rem",
+            breakpoints: {
+              1024: { perPage: 3 },
+              767: { perPage: 2 },
+              640: { perPage: 1 },
+            },
+            focus: "center",
+            updateOnMove: true,
           }}
         >
           {veggie.map((recipe) => {

@@ -20,7 +20,7 @@ import { styled } from "styled-components";
     }, [params.name]);
   
   return (
-    <DetailWrapper className="flex flex-row ">
+    <DetailWrapper className="flex">
       <div className="basis-1/3">
         <h2>{details.title}</h2>
         <img src={details.image} alt="" />
