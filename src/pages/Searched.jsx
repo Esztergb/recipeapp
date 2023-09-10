@@ -44,9 +44,17 @@ const Grid = styled.div`
   margin: 5rem;
 `;
 const Card = styled.div`
+  min-height: 20rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  /* border: 1px solid #dadcd9; */
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
   img {
     width: 100%;
-    border-radius: 2rem;
+    /* border-radius: 1rem; */
   }
   a {
     text-decoration: none;

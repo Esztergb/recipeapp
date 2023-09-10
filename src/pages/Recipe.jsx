@@ -66,7 +66,7 @@ import { styled } from "styled-components";
 
 const DetailWrapper = styled.div`
   margin: 4rem 15rem;
- 
+
   /* align-items: center;
   justify-content: center; */
   .active {
@@ -88,6 +88,10 @@ const DetailWrapper = styled.div`
   ul {
     margin-top: 2rem;
   }
+  img {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+      0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  }
 `;
 
 // const Card = styled.div`
@@ -104,10 +108,12 @@ const Button = styled.button`
   padding: 1rem 2rem;
   color: #715a45;
   background: white;
-  border: 2px solid #3a2e23;
+  /* border: 2px solid #3a2e23; */
   margin-right: 2rem;
   font-weight: 600;
   margin-bottom: 2rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 `;
 
 export default Recipe
