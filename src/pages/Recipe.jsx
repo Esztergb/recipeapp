@@ -20,7 +20,7 @@ import { styled } from "styled-components";
     }, [params.name]);
   
   return (
-    <DetailWrapper className="flex flex-row">
+    <DetailWrapper className="flex flex-row ">
       <div className="basis-1/3">
         <h2>{details.title}</h2>
         <img src={details.image} alt="" />
@@ -82,11 +82,8 @@ const DetailWrapper = styled.div`
     color: #715a45;
   }
   li {
-    font-size: 1.2rem;
-    line-height: 0.5;
-  }
-  ul {
-    margin-top: 2rem;
+    font-size: 1rem;
+    line-height: 0.3;
   }
   img {
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
@@ -107,11 +104,11 @@ const DetailWrapper = styled.div`
 const Button = styled.button`
   padding: 1rem 2rem;
   color: #715a45;
-  background: white;
+  background: #fdfaef;
   /* border: 2px solid #3a2e23; */
   margin-right: 2rem;
-  font-weight: 600;
   margin-bottom: 2rem;
+  font-weight: 600;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 `;
