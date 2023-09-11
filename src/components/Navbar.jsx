@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import styled from "styled-components";
+
 
 function Navbar() {
 // swich over from regular menu to hamburger menu
@@ -18,17 +20,37 @@ let navigate = useNavigate();
     <div className="w-screen h-[80px] z-10 fixed drop-shadow-md bg-cgreen">
       <div className="px-2 flex justify-between items-center w-full h-full">
         <div className="flex items-center">
-          {/* Brand */}
-          <img className="h-12 w-12 mr-4" src="/thyme.svg" alt="thyme logo"/>
-          <h1 className="text-3xl font-bold mr-4 sm:text-4 text-cwhite">
-            Thyme fot Lunch
-          </h1>
-          {/* Menu */}
-          <ul className="hidden md:flex">
-            <li className='hover:scale-110'> <Link to='/' className='cursor-pointer'>Recipies</Link></li>
-            <li className='hover:scale-110'> <Link to='/calendar' className='cursor-pointer'>Calendar</Link></li>
-            <li className='hover:scale-110'> <Link to='/shopping' className='cursor-pointer'>Shopping List</Link></li>
-          </ul>
+          <Nav>
+            {/* <GiKnifeFork /> */}
+            <Logo className="flex" to={"/"}>
+              <img
+                className="h-12 w-12 mr-4"
+                src="/thyme.svg"
+                alt="thyme logo"
+              />
+              <h1>Thyme for Lunch</h1>
+            </Logo>
+          </Nav>
+             {/* <ul className="hidden md:flex">
+            <li className="hover:scale-110">
+              {" "}
+              <Link to="/" className="cursor-pointer">
+                Recipies
+              </Link>
+            </li>
+            <li className="hover:scale-110">
+              {" "}
+              <Link to="/calendar" className="cursor-pointer">
+                Calendar
+              </Link>
+            </li>
+            <li className="hover:scale-110">
+              {" "}
+              <Link to="/shopping" className="cursor-pointer">
+                Shopping List
+              </Link>
+            </li>
+          </ul> */}
         </div>
         {/* sign in/Sign up buttons */}
         <div className="hidden md:flex pr-4">
@@ -48,11 +70,13 @@ let navigate = useNavigate();
       </div>
 
       {/* this div is part of the Hamburger Menu... */}
-      <ul className={!nav ? "hidden" : "md:hidden absolute bg-cgreen w-full px-8"}>
+      <ul
+        className={!nav ? "hidden" : "md:hidden absolute bg-cgreen w-full px-8"}
+      >
         <li className="border-b-2 border-cdarkgreen w-full">Recipies</li>
         <li className="border-b-2 border-cdarkgreen w-full">Calendar</li>
         <li className="border-b-2 border-cdarkgreen w-full">Shopping List</li>
-       {/* buttons */}
+        {/* buttons */}
         <div className="flex flex-col my-4">
           <button className="bg-transparent text-cbrown px-8 py-3 mb-4">
             Sign In
@@ -63,5 +87,20 @@ let navigate = useNavigate();
     </div>
   );
 }
+
+const Logo = styled(Link)`
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 400;
+`;
+const Nav = styled.div`
+  padding: 4rem 0rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  svg {
+    font-size: 2rem;
+  }
+`;
 
 export default Navbar
