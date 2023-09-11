@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import styled from "styled-components";
 
@@ -10,6 +10,11 @@ const [nav, setNav] = useState(false); //default
 const handleClick = () => setNav(!nav);
 
 // const handleClose = () => setNav(!nav);
+let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `/signup`; 
+    navigate(path);
+  }
 
   return (
     <div className="w-screen h-[80px] z-10 fixed drop-shadow-md bg-cgreen">
@@ -52,7 +57,7 @@ const handleClick = () => setNav(!nav);
           <button className="border-none bg-transparent text-cbrown mr-4">
             Sign In
           </button>
-          <button className="px-8 py-3">Sign Up</button>
+          <button className="px-8 py-3" onClick={routeChange}>Sign Up</button>
         </div>
         {/* Hamburger menu */}
         <div className="md:hidden mr-4" onClick={handleClick}>
