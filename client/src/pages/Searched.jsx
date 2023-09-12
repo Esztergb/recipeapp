@@ -3,39 +3,51 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
+import RecipeButton from '../components/RecipeButton';
+import FavButton from '../components/FavButton'
+
 
 function Searched() {
+  const [searchedRecipies, setSearchedRecipies] = useState([]);
+  let params = useParams();
+  const getSearchedRecipies = async (name) => {
+    const data = await fetch(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=74db62d59a674bbc85356ed301f3b3e2&number=12&query=${name}`
+    );
+    const recipes = await data.json();
+    setSearchedRecipies(recipes.results);
+  };
 
-    const [searchedRecipies, setSearchedRecipies] = useState([]);
-    let params = useParams();
-    const getSearchedRecipies = async (name) => {
-       const data = await fetch(
-         `https://api.spoonacular.com/recipes/complexSearch?apiKey=74db62d59a674bbc85356ed301f3b3e2&number=12&query=${name}`
-       );
-       const recipes = await data.json();
-       setSearchedRecipies(recipes.results);
-     };
+  //  process.env.REACT_APP_API_KEY;
+  //  import.meta.env.VITE_SOME_KEY
 
-    useEffect(() => {
-        getSearchedRecipies(params.search);
-    },[params.search])
+  useEffect(() => {
+    getSearchedRecipies(params.search);
+  }, [params.search]);
 
   return (
     <Grid>
-        {searchedRecipies.map((item) => {
-            return (
-                <Card key={item.id}>
-                   <Link to={"/recipe/" + item.id}>
-                    <img src={item.image} alt=""/>
-                    <h4>{item.title}</h4>
-                  </Link>
-                </Card>
-            )
-        })}
+      {searchedRecipies.map((item) => {
+        return (
+          <Card key={item.id}>
+            <div>
+              <img src={item.image} alt="" />
+              <h4>{item.title}</h4>
+            </div>
 
-
+            <Buttons>
+              <Link to={"/recipe/" + item.id}>
+                <RecipeButton />
+              </Link>
+              <Link to={"/MyRecipes/"}>
+                <FavButton />
+              </Link>
+            </Buttons>
+          </Card>
+        );
+      })}
     </Grid>
-  )
+  );
 }
 const Grid = styled.div`
   display: grid;
@@ -48,13 +60,11 @@ const Card = styled.div`
   border-radius: 1rem;
   overflow: hidden;
   position: relative;
-  /* border: 1px solid #dadcd9; */
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 7px;
   img {
     width: 100%;
-    /* border-radius: 1rem; */
   }
   a {
     text-decoration: none;
@@ -64,4 +74,9 @@ const Card = styled.div`
     padding: 1rem;
   }
 `;
+
+const Buttons = styled.div`
+display: flex;
+  
+`
 export default Searched

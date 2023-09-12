@@ -1,15 +1,12 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
-import { FaRegHeart } from "react-icons/fa";
-
-
+import { GiCookingPot } from "react-icons/gi";
 
 function Favbutton() {
   return (
     <Button>
       <div>
-      <FaRegHeart></FaRegHeart>
-     
+        <GiCookingPot></GiCookingPot>
       </div>
     </Button>
   );
@@ -20,7 +17,7 @@ const Button = styled.button`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background: linear-gradient(35deg, #715a45, #5a4a3b);
+  background: linear-gradient(to right, #f27121, #e94057);
   width: 6rem;
   height: 6rem;
   cursor: pointer;
@@ -30,18 +27,17 @@ const Button = styled.button`
 
   svg {
     color: #f7f0d9;
-    font-size: 2rem;
+    font-size: 3rem;
   }
   &.active {
     background: linear-gradient(to right, #f27121, #e94057);
 
     svg {
       color: #f7f0d9;
-      font-size: 2rem;
     }
     h4 {
       color: #f7f0d9;
     }
   }
 `;
-export default Favbutton
+export default Favbutton;

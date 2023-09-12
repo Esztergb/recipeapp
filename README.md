@@ -4,7 +4,6 @@
 </h1>
 <h2>Technologies Used</h2>
 
-
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
@@ -16,6 +15,20 @@
 ![Nodemon](https://img.shields.io/badge/Nodemon-76D04B.svg?style=for-the-badge&logo=Nodemon&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3.svg?style=for-the-badge&logo=Bootstrap&logoColor=white)
 ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
+
+<h2>DOCS</h2>
+
+[SPOONACULAR API](https://spoonacular.com/food-api/docs)
+
+[SPLIDE](https://splidejs.com/guides/options/) 
+
+[STYLED-COMPONENTS](https://styled-components.com/docs) 
+
+[TAILWIND CSS](https://tailwindcss.com/docs/installation) 
+
+[REACT ICONS](https://react-icons.github.io/react-icons) 
+
+[FRAMER MOTION](https://www.framer.com/motion/)
   
 </div>
 
@@ -41,7 +54,7 @@
 
 - [Tests](#tests)
 
-- [Contribution-Guidelines](#contribution-guidelines)
+- [Contribution](#contribution)
 
 - [License](#license)
 
@@ -91,7 +104,14 @@ Features of the site include Reacts ability to easily create a one page applicat
 ## Tests
 There are currently no unit testings written for this application.
 
-## Contribution-Guidelines
+## Contribution
+This App was created by:
+
+- Nhadea Lensky - see Nhadea's [GitHub](https://github.com/itsa-me-dea) for her other works.
+- Joan Brambila - see Joan's [GitHub](https://github.com/JoanBrambila) for her other works.
+- Len Zuro - see Len's [GitHub](https://github.com/LenZuro) for her other works.
+- Eszter Barbuscia - see Eszter's [GitHub](https://github.com/Esztergb) for her other works.
+
 Please follow Contributor Covenant Guidelines by clicking on the following link: 
 *[Contributor Covenant](https://www.contributor-covenant.org/)*
 
@@ -106,4 +126,4 @@ XXX
 
 ## Questions
 Please visit my [GitHub Repo](https://github.com/Esztergb/Thyme-for-Lunch) to view this project.
-[Deployed Page](https://)
+[Deployed Page](https://thyme-for-lunch-ca35ba4e7fee.herokuapp.com/)

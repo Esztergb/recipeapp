@@ -1,5 +1,5 @@
 {
-  "name": "thyme-for-lunch",
+  "name": "client",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,6 +11,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.2",
+    "jwt-decode": "^3.1.2",
     "@heroicons/react": "^1.0.6",
     "@splidejs/react-splide": "^0.7.12",
     "framer-motion": "^10.16.4",

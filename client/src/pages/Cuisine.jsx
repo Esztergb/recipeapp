@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import styled from "styled-components";
 import { motion } from 'framer-motion';
 import { Link, useParams } from 'react-router-dom'; //useParams pulls out keyword from URL
+import RecipeButton from "../components/RecipeButton";
+import FavButton from "../components/FavButton";
 
 
 function Cuisine() {
@@ -31,10 +33,19 @@ function Cuisine() {
         {cuisine.map((item) => {
             return (
               <Card key={item.id}>
-                <Link to={"/recipe/" + item.id}>
-                  <img src={item.image} alt={item.name} />
+                <div>
+                  <img src={item.image} alt="" />
                   <h4>{item.title}</h4>
-                </Link>
+                </div>
+
+                <Buttons>
+                  <Link to={"/recipe/" + item.id}>
+                    <RecipeButton />
+                  </Link>
+                  <Link to={"/MyRecipes/"}>
+                    <FavButton />
+                  </Link>
+                </Buttons>
               </Card>
             );
         })}
@@ -50,16 +61,14 @@ const Grid = styled(motion.div)`
 `
 const Card = styled.div`
   min-height: 20rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
   overflow: hidden;
   position: relative;
-  /* border: 1px solid #dadcd9; */
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 7px;
   img {
     width: 100%;
-    /* border-radius: 1rem; */
   }
   a {
     text-decoration: none;
@@ -69,4 +78,10 @@ const Card = styled.div`
     padding: 1rem;
   }
 `;
+
+const Buttons = styled.div`
+display: flex;
+  
+`
+
 export default Cuisine

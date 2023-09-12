@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { Link } from "react-router-dom";
+import RecipeButton from "../components/RecipeButton";
+import FavButton from "../components/FavButton";
 
 
 
@@ -56,15 +58,23 @@ function Veggie() {
             updateOnMove: true,
           }}
         >
-          {veggie.map((recipe) => {
+          {veggie.map((item) => {
             return (
-              <SplideSlide key={recipe.id}>
-                <Card>
-                  <Link to={"/recipe/" + recipe.id}>
-                    <p>{recipe.title}</p>
-                    <img src={recipe.image} alt={recipe.title} />
-                    <Gradient />
-                  </Link>
+              <SplideSlide key={item.id}>
+                <Card key={item.id}>
+                  <div>
+                    <img src={item.image} alt="" />
+                    <h4>{item.title}</h4>
+                  </div>
+
+                  <Buttons>
+                    <Link to={"/recipe/" + item.id}>
+                      <RecipeButton />
+                    </Link>
+                    <Link to={"/MyRecipes/"}>
+                      <FavButton />
+                    </Link>
+                  </Buttons>
                 </Card>
               </SplideSlide>
             );
@@ -91,47 +101,26 @@ const Wrapper = styled.div`
   `;
 
 const Card = styled.div`
-  min-height: 15rem;
+  min-height: 20rem;
   border-radius: 1rem;
   overflow: hidden;
   position: relative;
-  /* border: 1px solid #dadcd9; */
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 7px;
-
   img {
-    /* border-radius: 2rem; */
-    /* position: absolute; */
-    left: 0;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    font-weight: 600;
-    font-size: 1rem;
   }
-  p {
-    position: absolute;
-    z-index: 10;
-    left: 50%;
-    bottom: 10%;
-    transform: translate(-50%, 0%);
-    color: #95ab8b;
-    width: 100%;
-    height: 40;
+  a {
+    text-decoration: none;
+  }
+  h4 {
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 1rem;
   }
 `;
 
-const Gradient = styled.div`
-  z-index: 3;
-  position: absolute;
-  width: 100%;
-  height: 100;
-  background: linear-gradient(rgba(0, 0, 0, 0)), rgba(0, 0, 0, 0.5);
+const Buttons = styled.div`
+  display: flex;
 `;
-
 export default Veggie;
