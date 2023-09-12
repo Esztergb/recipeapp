@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { motion } from 'framer-motion';
 import { Link, useParams } from 'react-router-dom'; //useParams pulls out keyword from URL
 import RecipeButton from "../components/RecipeButton";
-import FavButton from "../components/Button";
+import FavButton from "../components/FavButton";
 
 
 function Cuisine() {
