@@ -97,7 +97,7 @@ Features of the site include Reacts ability to easily create a one page applicat
 
 ## Suggested Future Development
 
-- 
+- Connect to Instacart
 - 
 - 
 
