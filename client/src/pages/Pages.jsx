@@ -8,7 +8,7 @@ import { AnimatePresence } from "framer-motion";
 import SignUp from "./SignUp";
 import Shopping from "./Shopping";
 import MyRecipes from "./MyRecipes";
-
+import SignIn from "./SignIn";
 
 function Pages() {
   const location = useLocation();
@@ -22,6 +22,7 @@ function Pages() {
         <Route path="/myrecipes" element={<MyRecipes />} />
         <Route path="/shopping" element={<Shopping />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
       </Routes>
     </AnimatePresence>
   );
