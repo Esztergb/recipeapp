@@ -37,8 +37,8 @@ let navigate = useNavigate();
           <ul className="hidden md:flex">
             <li className="hover:scale-110">
               {" "}
-              <Link to="/calendar" className="cursor-pointer">
-                Calendar
+              <Link to="/myrecipes" className="cursor-pointer">
+                My Recipes
               </Link>
             </li>
             <li className="hover:scale-110">
@@ -74,7 +74,7 @@ let navigate = useNavigate();
         className={!nav ? "hidden" : "md:hidden absolute bg-cgreen w-full px-8"}
       >
         <li className="border-b-2 border-cdarkgreen w-full">Recipies</li>
-        <li className="border-b-2 border-cdarkgreen w-full">Calendar</li>
+        <li className="border-b-2 border-cdarkgreen w-full">MyRecipes</li>
         <li className="border-b-2 border-cdarkgreen w-full">Shopping List</li>
         {/* buttons */}
         <div className="flex flex-col my-4">

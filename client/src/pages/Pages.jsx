@@ -7,7 +7,7 @@ import Recipe from "./Recipe";
 import { AnimatePresence } from "framer-motion";
 import SignUp from "./SignUp";
 import Shopping from "./Shopping";
-import Calendar from "./Calendar";
+import MyRecipes from "./MyRecipes";
 
 
 function Pages() {
@@ -19,7 +19,7 @@ function Pages() {
         <Route path="/cuisine/:type" element={<Cuisine />} />
         <Route path="/searched/:search" element={<Searched />} />
         <Route path="/recipe/:name" element={<Recipe />} />
-        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/myrecipes" element={<MyRecipes />} />
         <Route path="/shopping" element={<Shopping />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
