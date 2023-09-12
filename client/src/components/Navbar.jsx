@@ -52,7 +52,7 @@ let navigate = useNavigate();
 
         {/* SIGN IN/SIGN UP BUTTONS */}
         <div className="hidden md:flex pr-4">
-          <button className="border-none bg-transparent text-cbrown mr-4">
+          <button className="border-none bg-transparent text-cbrown mr-4" onClick={event =>  window.location.href='/signin'}>
             Sign In
           </button>
           <button className="px-8 py-3" onClick={routeChange}>
