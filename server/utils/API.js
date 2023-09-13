@@ -1,6 +1,6 @@
 // const express = require("express");
 // const router = express.Router();
-// const axios = require("axios");
+
 
 // router.get("/search", async (req, res) => {
 //   console.log(req);
@@ -28,6 +28,7 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
+require("dotenv").config()
 
 router.get("/search", async (req, res) => {
   try {
@@ -36,14 +37,7 @@ router.get("/search", async (req, res) => {
 
     // Make the Axios call to the API
     const response = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch`,
-      {
-        params: {
-          apiKey,
-          number: 12,
-          query: name,
-        },
-      }
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=74db62d59a674bbc85356ed301f3b3e2&number=12&query=${name}`
     );
 
     const recipes = response.data.results;
