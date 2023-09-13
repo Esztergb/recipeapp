@@ -3,5 +3,22 @@
 const { Schema } = require('mongoose');
 
 const recipeSchema = new Schema ({
-    
-})
+    recipe: {
+        type: String ,
+    },
+    image: {
+        type: String,
+    },
+    title: {
+        type: String,
+    },
+    ingredients: [ ingredientsSchema ]
+});
+
+const ingredientsSchema = new Schema ({
+    name: {
+        type: String
+    },
+});
+
+module.exports = recipeSchema;
