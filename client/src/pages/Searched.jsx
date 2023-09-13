@@ -16,6 +16,7 @@ function Searched() {
     );
     const recipes = await data.json();
     setSearchedRecipies(recipes.results);
+     console.log(recipes.results);
    
   };
 
