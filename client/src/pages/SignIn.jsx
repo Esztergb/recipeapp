@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function SignIn() {
   return (
-    <div className="w-full h-screen flex bg-cwhite">
+    <div className="w-full h-screen flex bg-cwhite md:flex md:justify-center mb-6">
     <div className="mt-[80px]">
     <form class="w-full max-w-sm">
   <div class="md:flex md:items-center mb-6">
