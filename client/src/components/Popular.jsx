@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import { Link } from "react-router-dom";
-import RecipeButton from "../components/RecipeButton";
-import FavButton from "../components/FavButton";
 import { getPopular } from "../api/spoonacular";
+import RecipeCard from "../components/RecipeCard";
+
 
   function Popular() {
     const [popular, setPopular] = useState([]);
@@ -44,24 +43,14 @@ import { getPopular } from "../api/spoonacular";
               updateOnMove: true,
             }}
           >
-            {popular.map((recipe) => {
+            {popular.map((item) => {
               return (
-                <SplideSlide key={recipe.id}>
-                  <Card key={recipe.id}>
-                    <div>
-                      <img src={recipe.image} alt="" />
-                      <h4>{recipe.title}</h4>
-                    </div>
-
-                    <Buttons>
-                      <Link to={"/recipe/" + recipe.id}>
-                        <RecipeButton />
-                      </Link>
-                      <Link to={"/MyRecipes/"}>
-                        <FavButton />
-                      </Link>
-                    </Buttons>
-                  </Card>
+                <SplideSlide key={item.id}>
+                  <RecipeCard
+                    image={item.image}
+                    title={item.title}
+                    id={item.id}
+                  />
                 </SplideSlide>
               );
             })}
@@ -85,37 +74,6 @@ const Wrapper = styled.div`
   margin-left: 5rem;
   margin-right: 5rem;
 `;
-const Card = styled.div`
-  min-height: 20rem;
-  border-radius: 1rem;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 7px;
-  img {
-    width: 100%;
-  }
-  a {
-    text-decoration: none;
-  }
-  h4 {
-    text-align: center;
-    padding: 1rem;
-  }
-`;
-
-const Buttons = styled.div`
-  display: flex;
-`;
-
-// const Gradient = styled.div`
-//   z-index: 3;
-//   position: absolute;
-//   width: 100%;
-//   height: 100;
-//   background: linear-gradient(rgba(0, 0, 0, 0)), rgba(0, 0, 0, 0.5);
-// `;
 
 
 export default Popular
