@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import RecipeButton from '../components/RecipeButton';
 import FavButton from '../components/FavButton';
 import { getSearchedRecipes } from '../api/spoonacular';

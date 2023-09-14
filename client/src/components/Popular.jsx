@@ -5,80 +5,71 @@ import "@splidejs/react-splide/css";
 import { Link } from "react-router-dom";
 import RecipeButton from "../components/RecipeButton";
 import FavButton from "../components/FavButton";
+import { getPopular } from "../api/spoonacular";
 
+  function Popular() {
+    const [popular, setPopular] = useState([]);
 
-function Popular() {
-  const [popular, setPopular] = useState([]);
+    useEffect(() => {
+      getPopular()
+        .then((recipes) => {
+          setPopular(recipes);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }, []);
 
-  //useEffect automatically imports from React - running the getPupuler function only when the component is mounted
-  useEffect(() => {
-    getPopular();
-  }, []);
+    // fetch request to Spoonacular API to find random (popular) recipes.
 
-  // fetch request to Spoonacular API to find random (popular) recipes.
-  const getPopular = async () => {
-    const check = localStorage.getItem("popular");
+    return (
+      <div>
+        <Title>
+          <h3>Popular Picks</h3>
+        </Title>
+        <Wrapper>
+          <Splide
+            options={{
+              perPage: 4,
+              arrows: false,
+              pagination: false,
+              drag: "free",
+              gap: "3rem",
+              breakpoints: {
+                1024: { perPage: 3 },
+                767: { perPage: 2 },
+                640: { perPage: 1 },
+              },
+              focus: "center",
+              updateOnMove: true,
+            }}
+          >
+            {popular.map((recipe) => {
+              return (
+                <SplideSlide key={recipe.id}>
+                  <Card key={recipe.id}>
+                    <div>
+                      <img src={recipe.image} alt="" />
+                      <h4>{recipe.title}</h4>
+                    </div>
 
-    if (check) {
-      setPopular(JSON.parse(check));
-    } else {
-      const api = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=74db62d59a674bbc85356ed301f3b3e2&number=12`
-      );
-      const data = await api.json();
-      localStorage.setItem("popular", JSON.stringify(data.recipes));
-      setPopular(data.recipes);
-    }
-  };
-
-  return (
-    <div>
-      <Title>
-        <h3>Popular Picks</h3>
-      </Title>
-      <Wrapper>
-        <Splide
-          options={{
-            perPage: 4,
-            arrows: false,
-            pagination: false,
-            drag: "free",
-            gap: "3rem",
-            breakpoints: {
-              1024: { perPage: 3, },
-              767: { perPage: 2, },
-              640: { perPage: 1, },
-            },
-            focus: "center",
-            updateOnMove: true,
-          }}
-        >
-          {popular.map((item) => {
-            return (
-              <SplideSlide key={item.id}>
-                <Card key={item.id}>
-                  <div>
-                    <img src={item.image} alt="" />
-                    <h4>{item.title}</h4>
-                  </div>
-
-                  <Buttons>
-                    <Link to={"/recipe/" + item.id}>
-                      <RecipeButton />
-                    </Link>
-                    <Link to={"/MyRecipes/"}>
-                      <FavButton />
-                    </Link>
-                  </Buttons>
-                </Card>
-              </SplideSlide>
-            );
-          })}
-        </Splide>
-      </Wrapper>
-    </div>
-  );
-}
+                    <Buttons>
+                      <Link to={"/recipe/" + recipe.id}>
+                        <RecipeButton />
+                      </Link>
+                      <Link to={"/MyRecipes/"}>
+                        <FavButton />
+                      </Link>
+                    </Buttons>
+                  </Card>
+                </SplideSlide>
+              );
+            })}
+          </Splide>
+        </Wrapper>
+      </div>
+    );
+  }
 const Title = styled.div`
   display: flex;
   justify-content: center;
@@ -127,4 +118,4 @@ const Buttons = styled.div`
 // `;
 
 
-export default Popular;
+export default Popular

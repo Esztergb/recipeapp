@@ -1,27 +1,31 @@
-// export const getSearchedRecipes = async (name) => {
-//   try {
-//     const response = await axios.get(`/api/spoonacular/search?name=${name}`);
-
-//     // Axios automatically throws an error for non-2xx HTTP responses,
-//     // so you can simplify the error handling here.
-
-//     return response.data;
-//   } catch (error) {
-//     throw new Error(`API request failed: ${error.message}`);
-//   }
-// };
-
 import axios from "axios";
 
-export const getSearchedRecipes = async (name) => {
+const makeApiRequest = async (url) => {
   try {
-    const response = await axios.get(`/api/spoonacular/search?name=${name}`);
-
-    // Axios automatically throws an error for non-2xx HTTP responses,
-    // so you can simplify the error handling here.
-
+    const response = await axios.get(url);
     return response.data;
   } catch (error) {
     throw new Error(`API request failed: ${error.message}`);
   }
 };
+
+export const getSearchedRecipes = async (name) => {
+  const url = `/api/spoonacular/search?name=${name}`;
+  return makeApiRequest(url);
+};
+
+export const getCuisine = async (name) => {
+  const url = `/api/spoonacular/cuisine/${name}`;
+  return makeApiRequest(url);
+};
+
+export const getPopular = async () => {
+  const url =`/api/spoonacular/popular`;
+  return makeApiRequest(url);
+}
+ 
+export const getVeggie = async () => {
+  const url =`/api/spoonacular/vegetarian`;
+  return makeApiRequest(url);
+}
+ 

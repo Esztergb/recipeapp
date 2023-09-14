@@ -4,25 +4,23 @@ import { motion } from 'framer-motion';
 import { Link, useParams } from 'react-router-dom'; //useParams pulls out keyword from URL
 import RecipeButton from "../components/RecipeButton";
 import FavButton from "../components/FavButton";
-
+import { getCuisine } from "../api/spoonacular";
 
 function Cuisine() {
     const [cuisine, setCuisine] = useState([]);
-    let params = useParams();
+    const params = useParams();
 
-    const getCuisine = async (name) => {
-        const data = await fetch(
-          `https://api.spoonacular.com/recipes/complexSearch?apiKey=74db62d59a674bbc85356ed301f3b3e2&number=12&cuisine=${name}`
-        );
+     useEffect(() => {
+       getCuisine(params.type)
+       .then((recipes) => {
+        setCuisine(recipes)
+       })
+       .catch((error) => {
+        console.error(error)
+       })
+       console.log(params.type);
+     }, [params.type]);
 
-        const recipes = await data.json();
-        setCuisine(recipes.results);
-    }
-
-    useEffect(() => {
-        getCuisine(params.type)
-        console.log(params.type);
-    },[params.type]);
 
   return <Grid 
             animate={{opacity: 1}} 
